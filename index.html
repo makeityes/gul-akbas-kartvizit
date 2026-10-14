@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#005b59">
+<title>Gül Akbaş | Pear Pet Hotel</title>
+<style>
+:root{
+  --green:#005b59;
+  --light:#d7efb9;
+  --bg:#f4f7f5;
+  --text:#173533;
+  --muted:#6d7b79;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.wrap{max-width:480px;margin:auto;min-height:100vh;background:#fff}
+.hero{
+  background:linear-gradient(160deg,#004f4d,#08716d);
+  padding:28px 24px 34px;
+  text-align:center;
+  color:#fff;
+  border-radius:0 0 28px 28px;
+}
+.logo{
+  width:150px;height:150px;object-fit:cover;border-radius:50%;
+  background:#fff;padding:5px;
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+}
+.name{font-size:28px;font-weight:800;margin-top:18px}
+.role{font-size:15px;opacity:.9;margin-top:5px}
+.company{font-size:18px;font-weight:700;margin-top:4px;color:var(--light)}
+.content{padding:22px 18px 34px}
+.save{
+  display:block;text-align:center;text-decoration:none;
+  background:var(--green);color:#fff;font-weight:700;
+  padding:16px;border-radius:14px;margin-bottom:18px;
+  box-shadow:0 7px 18px rgba(0,91,89,.18);
+}
+.section{font-size:12px;text-transform:uppercase;letter-spacing:1px;
+  color:#7b8785;font-weight:800;margin:22px 4px 10px}
+.item{
+  display:flex;align-items:center;gap:14px;
+  padding:14px;border:1px solid #e6ecea;border-radius:14px;
+  text-decoration:none;color:var(--text);margin-bottom:10px;
+  background:#fff;
+}
+.icon{
+  width:44px;height:44px;border-radius:12px;
+  background:#edf6e3;display:flex;align-items:center;
+  justify-content:center;font-size:21px;flex:0 0 44px;
+}
+.label{font-size:12px;color:var(--muted);margin-bottom:3px}
+.value{font-size:15px;font-weight:700;word-break:break-word}
+.socials{display:flex;justify-content:center;margin-top:18px}
+.social{
+  width:52px;height:52px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;text-decoration:none;
+  background:var(--green);color:#fff;font-weight:800;font-size:20px;
+}
+.footer{text-align:center;color:#a1aaa8;font-size:12px;margin-top:26px}
+
+.map-choice{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;z-index:999;
+}
+.map-choice.show{display:flex}
+.map-box{
+  width:min(360px,100%);background:#fff;border-radius:18px;
+  padding:20px;box-shadow:0 15px 40px rgba(0,0,0,.25);
+  text-align:center;
+}
+.map-title{font-size:18px;font-weight:800;margin-bottom:14px}
+.map-button{
+  display:block;text-decoration:none;background:var(--green);color:#fff;
+  font-weight:700;padding:14px;border-radius:12px;margin-top:10px;
+}
+.map-close{
+  margin-top:12px;border:0;background:none;color:var(--muted);
+  font-weight:700;font-size:14px;padding:8px;cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <img class="logo" src="logo.png" alt="Pear Pet Hotel Logo">
+    <div class="name">Gül Akbaş</div>
+    <div class="role">Kurucu, Köpek Eğitmeni</div>
+    <div class="company">Pear Pet Hotel</div>
+  </header>
+
+  <main class="content">
+    <a class="save" href="#" onclick="saveContact(event)">👤 Kişilere Kaydet</a>
+
+    <div class="section">İletişim</div>
+
+    <a class="item" href="tel:+905334046506">
+      <div class="icon">📞</div>
+      <div><div class="label">Telefon</div><div class="value">0533 404 65 06</div></div>
+    </a>
+
+    <a class="item" href="https://wa.me/905334046506" target="_blank" rel="noopener">
+      <div class="icon">💬</div>
+      <div><div class="label">WhatsApp</div><div class="value">WhatsApp'tan Yaz</div></div>
+    </a>
+
+    <div class="section">Pear Pet Hotel</div>
+
+    <a class="item" href="#" onclick="openMapChoice(event)">
+      <div class="icon">📍</div>
+      <div><div class="label">Adres</div><div class="value">Yol tarifi almak için dokunun</div></div>
+    </a>
+
+    <div class="map-choice" id="mapChoice" onclick="if(event.target === event.currentTarget) closeMapChoice()">
+      <div class="map-box">
+        <div class="map-title">Harita seçin</div>
+        <a class="map-button" href="https://maps.app.goo.gl/kuqixNQN47DSRx3Y7?g_st=ic" target="_blank" rel="noopener">Google Haritalar</a>
+        <a class="map-button" href="https://maps.apple.com/?address=Hac%C4%B1muratl%C4%B1%2C%20Ankara&query=Pear%20Pet%20Hotel" target="_blank" rel="noopener">Apple Haritalar</a>
+        <button class="map-close" type="button" onclick="closeMapChoice()">Vazgeç</button>
+      </div>
+    </div>
+
+    <div class="section">Sosyal Medya</div>
+    <a class="item" href="https://www.instagram.com/pearpetotel/" target="_blank" rel="noopener">
+      <div class="icon">◎</div>
+      <div><div class="label">Instagram</div><div class="value">@pearpetotel</div></div>
+    </a>
+
+    <div class="footer">Pear Pet Hotel • Dijital Kartvizit</div>
+  </main>
+</div>
+
+<script>
+function saveContact(e){
+  e.preventDefault();
+  const vcard = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "FN:Gül Akbaş",
+    "N:Akbaş;Gül;;;",
+    "ORG:Pear Pet Hotel",
+    "TITLE:Kurucu, Köpek Eğitmeni",
+    "TEL;TYPE=CELL:+905334046506",
+    "URL:https://www.instagram.com/pearpetotel/",
+    "END:VCARD"
+  ].join("\r\n");
+  const blob = new Blob([vcard], {type:"text/vcard;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Gul-Akbas.vcf";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function openMapChoice(e){
+  e.preventDefault();
+  document.getElementById("mapChoice").classList.add("show");
+}
+
+function closeMapChoice(){
+  document.getElementById("mapChoice").classList.remove("show");
+}
+</script>
+</body>
+</html>
